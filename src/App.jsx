@@ -16,6 +16,8 @@ const monsterReducer = combineReducers({
   // the key is the real name for the slice of state
   count: reducers.countReducer,
   formValues: reducers.formReducer,
+  cart: reducers.cartReducer,
+  stock: reducers.stockReducer,
 });
 
 // feed the createStore the combined reducer (5)
