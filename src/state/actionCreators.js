@@ -28,15 +28,24 @@ export function changeInput(target) {
 }
 
 export function addToCart(itemId) {
-  // implement
+  return {
+    type: types.ADD_TO_CART,
+    payload: itemId,
+  };
 }
 
 export function getFruits(fruits) {
-  // implement
+  return {
+    type: types.ADD_FRUITS,
+    payload: fruits,
+  };
 }
 
-export function getMeats(fruits) {
-  // implement
+export function getMeats(meats) {
+  return {
+    type: types.ADD_MEATS,
+    payload: meats,
+  };
 }
 
 export const getStock = () => dispatch => {
