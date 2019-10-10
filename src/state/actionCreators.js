@@ -61,5 +61,13 @@ export const getStock = () => dispatch => {
   //       });
   //   });
 
-  
+  const fruitsPromise = axios.get(fruitsApi);
+  const meatsPromise = axios.get(meatsApi);
+
+  Promise.all([fruitsPromise, meatsPromise])
+    .then(([fruitsApiResponse, meatsPromiseResponse]) => {
+      const fruits = fruitsApiResponse.data;
+      const meats = meatsPromiseResponse.data;
+      // ???????? what now
+    });
 };
