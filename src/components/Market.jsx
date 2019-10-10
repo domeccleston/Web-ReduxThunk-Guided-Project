@@ -2,9 +2,6 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../state/actionCreators';
 
-const fruitsApi = 'http://localhost:4000/market/fruits';
-const meatsApi = 'http://localhost:4000/market/meats';
-
 export default connect(
   state => state,
   actionCreators,
