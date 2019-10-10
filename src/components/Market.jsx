@@ -7,6 +7,8 @@ export default connect(
   actionCreators,
 )(Market);
 
+// Market needs to somehow invoke getStock !!!!!
+// HOW DO WE DO IT??????????
 export function Market({ addToCart, stock, cart }) {
   return (
     <div className="component">
