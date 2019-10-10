@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as types from './actionTypes';
 
+const todosApi = 'http://localhost:4000/todos';
 const fruitsApi = 'http://localhost:4000/market/fruits';
 const meatsApi = 'http://localhost:4000/market/meats';
 

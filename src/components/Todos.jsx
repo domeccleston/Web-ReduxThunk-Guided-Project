@@ -1,8 +1,6 @@
 import React, { useReducer } from 'react';
 import uuid from 'uuid';
 
-const todosApi = 'http://localhost:4000/todos';
-
 const MARK = 'MARK';
 
 const initialState = [
