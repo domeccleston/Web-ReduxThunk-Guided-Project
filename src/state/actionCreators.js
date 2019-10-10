@@ -48,7 +48,25 @@ export function getMeats(meats) {
   };
 }
 
+// this is a special action creator.
+// instead of returning an action, it returns a function.
+// the thunk middleware will intercept this action creator.
+// and will call 'dispatch' for use, once the async stuff is done.
+
+// THIS ALLOWS TO REMOVE AXIOS LOGIC FROM THE COMPONENT!!!!!!!!!
 export const getStock = () => dispatch => {
+  const fruitsPromise = axios.get(fruitsApi);
+  const meatsPromise = axios.get(meatsApi);
+
+  Promise.all([fruitsPromise, meatsPromise])
+    .then(([fruitsApiResponse, meatsApiResponse]) => {
+      const fruits = fruitsApiResponse.data;
+      const meats = meatsApiResponse.data;
+
+      dispatch({ type: types.ADD_FRUITS, payload: fruits }); // :(
+      dispatch(getMeats(meats)); // :)
+    });
+
   // let fruits;
   // let meats;
   // axios.get(fruitsApi)
@@ -60,14 +78,4 @@ export const getStock = () => dispatch => {
   //         meats = res.data;
   //       });
   //   });
-
-  const fruitsPromise = axios.get(fruitsApi);
-  const meatsPromise = axios.get(meatsApi);
-
-  Promise.all([fruitsPromise, meatsPromise])
-    .then(([fruitsApiResponse, meatsPromiseResponse]) => {
-      const fruits = fruitsApiResponse.data;
-      const meats = meatsPromiseResponse.data;
-      // ???????? what now
-    });
 };
