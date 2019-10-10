@@ -49,5 +49,17 @@ export function getMeats(meats) {
 }
 
 export const getStock = () => dispatch => {
-  // implement
+  // let fruits;
+  // let meats;
+  // axios.get(fruitsApi)
+  //   .then(res => {
+  //     fruits = res.data;
+
+  //     axios.get(meatsApi)
+  //       .then(res => {
+  //         meats = res.data;
+  //       });
+  //   });
+
+  
 };
