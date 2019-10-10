@@ -34,8 +34,8 @@ export function addMeats(fruits) {
   return { type: types.ADD_MEATS, payload: fruits };
 }
 
-export function addToCart(item) {
-  return { type: types.ADD_TO_CART, payload: item };
+export function addToCart(itemId) {
+  return { type: types.ADD_TO_CART, payload: itemId };
 }
 
 export const getStock = () => dispatch => {

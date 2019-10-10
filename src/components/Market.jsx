@@ -16,18 +16,23 @@ export function Market({ addToCart, stock, cart, getStock }) {
     <div className="component">
       <ItemsList items={stock.fruits} addToCart={addToCart} />
       <ItemsList items={stock.meats} addToCart={addToCart} />
-      <Cart items={cart} />
+      <Cart stock={stock} cart={cart} />
     </div>
   );
 }
 
-function Cart({ items }) {
+function Cart({ cart, stock }) {
   return (
     <>
       <h5>Cart:</h5>
       {
-        items.length
-          ? items.map((item, idx) => <div key={item.id + idx}>{item.name}</div>)
+        cart.length
+          ? cart.map(itemId => {
+            debugger
+            const allItems = stock.meats.concat(stock.fruits);
+            const theItem = allItems.find(item => item.id === itemId);
+            return <div>{theItem.name}</div>;
+          })
           : <div>Nothing in the cart. Sad!</div>
       }
     </>
@@ -38,7 +43,7 @@ function Item({ item, addToCart }) {
   return (
     <div>
       <span>{item.name}</span>
-      <button onClick={() => addToCart(item)}>Add To Cart</button>
+      <button onClick={() => addToCart(item.id)}>Add To Cart</button>
     </div>
   );
 }
