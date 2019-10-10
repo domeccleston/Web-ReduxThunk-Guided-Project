@@ -11,6 +11,9 @@ export default connect(
 // HOW DO WE DO IT??????????
 export function Market({ addToCart, stock, cart, getStock }) {
   useEffect(() => {
+    // this is an action creator that returns a func
+    // instead of an object so redux-thunk middleware
+    // will kick in!!!
     getStock();
   }, []);
   return (
