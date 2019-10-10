@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../state/actionCreators';
 
@@ -9,7 +9,10 @@ export default connect(
 
 // Market needs to somehow invoke getStock !!!!!
 // HOW DO WE DO IT??????????
-export function Market({ addToCart, stock, cart }) {
+export function Market({ addToCart, stock, cart, getStock }) {
+  useEffect(() => {
+    getStock();
+  }, []);
   return (
     <div className="component">
       <ItemsList items={stock.fruits} addToCart={addToCart} />
