@@ -26,25 +26,18 @@ export function changeInput(target) {
   };
 }
 
-export function addFruits(fruits) {
-  return { type: types.ADD_FRUITS, payload: fruits };
-}
-
-export function addMeats(fruits) {
-  return { type: types.ADD_MEATS, payload: fruits };
-}
-
 export function addToCart(itemId) {
-  return { type: types.ADD_TO_CART, payload: itemId };
+  // implement
+}
+
+export function getFruits(fruits) {
+  // implement
+}
+
+export function getMeats(fruits) {
+  // implement
 }
 
 export const getStock = () => dispatch => {
-  const fruitsPromise = axios.get(fruitsApi);
-  const meatsPromise = axios.get(meatsApi);
-
-  Promise.all([fruitsPromise, meatsPromise])
-    .then(([fruitsAxiosRes, meatsAxiosRes]) => {
-      dispatch(addFruits(fruitsAxiosRes.data));
-      dispatch(addMeats(meatsAxiosRes.data));
-    });
+  // implement
 };

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../state/actionCreators';
 
@@ -7,11 +7,7 @@ export default connect(
   actionCreators,
 )(Market);
 
-export function Market({ addToCart, stock, cart, getStock }) {
-  useEffect(() => {
-    getStock();
-  }, []);
-
+export function Market({ addToCart, stock, cart }) {
   return (
     <div className="component">
       <ItemsList items={stock.fruits} addToCart={addToCart} />
@@ -28,7 +24,6 @@ function Cart({ cart, stock }) {
       {
         cart.length
           ? cart.map(itemId => {
-            debugger
             const allItems = stock.meats.concat(stock.fruits);
             const theItem = allItems.find(item => item.id === itemId);
             return <div>{theItem.name}</div>;
@@ -52,14 +47,13 @@ function ItemsList({ items, addToCart }) {
   return (
     <>
       {
-        items.map(
-          (item) => (
-            <Item
-              key={item.id}
-              item={item}
-              addToCart={addToCart}
-            />
-          ))
+        items.map((item) => (
+          <Item
+            key={item.id}
+            item={item}
+            addToCart={addToCart}
+          />
+        ))
       }
     </>
   );

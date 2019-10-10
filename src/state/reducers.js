@@ -38,22 +38,12 @@ export function formReducer(state = initialFormState, action) {
 
 const initialCart = [];
 export function cartReducer(state = initialCart, action) {
-  switch (action.type) {
-    case types.ADD_TO_CART:
-      return state.concat(action.payload);
-    default:
-      return state;
-  }
+  // implement
+  return state;
 }
 
 const intialStock = { meats: [], fruits: [] };
 export function stockReducer(state = intialStock, action) {
-  switch (action.type) {
-    case types.ADD_FRUITS:
-      return { ...state, fruits: action.payload };
-    case types.ADD_MEATS:
-      return { ...state, meats: action.payload };
-    default:
-      return state;
-  }
+  // implement
+  return state;
 }
